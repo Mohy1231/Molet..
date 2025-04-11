@@ -1,0 +1,633 @@
+/* Resetování základních stylů */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+
+
+
+
+/* Navigace */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    background-color: #1E3A8A;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .logo h1 {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #FFB74D;
+}
+
+
+
+
+
+
+/* Odkazy pro přihlášení / registraci */
+.auth-links {
+    display: flex;
+    align-items: center;
+}
+
+.auth-links a {
+    margin-left: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    background-color: #FFB74D;
+    padding: 8px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.auth-links a:hover {
+    background-color: #FF9800;
+    transform: translateY(-2px);
+}
+
+
+
+
+
+
+
+/* Hero sekce */
+.hero {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+    background-image: url('../photos/foto.jpg');
+}
+
+.hero-text h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #001570;
+}
+
+.hero-text p {
+    font-size: 22px;
+    margin-bottom: 30px;
+    color: #001570;
+}
+.hero-text p {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.cta-button {
+    padding: 12px 30px;
+    background-color: #FFB74D;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 5px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #FF9800;
+    transform: translateY(-2px);
+}
+
+
+
+
+
+/* Sekce pro lety */
+.flights {
+    padding: 70px 20px;
+    background-color: white;
+    text-align: center;
+    color: #1E3A8A;
+}
+
+.flights h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.flight-options {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.flight-card {
+    width: 30%;
+    padding: 25px;
+    margin: 15px;
+    background-color: #E0F7FA;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.flight-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.flight-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Zajištění správného přizpůsobení obrázků */
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.flight-card p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.flight-card span {
+    font-weight: bold;
+    color: #FF9800;
+}
+
+.flight-card .book-btn {
+    padding: 10px 20px;
+    background-color: #1E3A8A;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.flight-card .book-btn:hover {
+    background-color: #FFB74D;
+}
+
+.flight-card:hover {
+    transform: translateY(-10px);
+}
+
+
+
+
+
+
+/* Styling pro formulář pro vyhledávání letů */
+.flight-search {
+    margin-top: 50px;
+    padding: 40px 20px;
+    background-color: #FFF3E0;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.flight-search label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.flight-search select,
+.flight-search input {
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 250px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+.flight-search input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: #1E3A8A;
+}
+
+.flight-search button {
+    padding: 12px 25px;
+    background-color: #1E3A8A;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.flight-search button:hover {
+    background-color: #FFB74D;
+    transform: translateY(-3px);
+}
+
+
+
+
+/* Sluzby */
+.services {
+    padding: 70px 20px;
+    background-color: white;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    font-weight: 600;
+    color: #1E3A8A;
+}
+
+.service-card {
+    display: inline-block;
+    width: 30%;
+    padding: 25px;
+    margin: 15px;
+    background-color: #E0F7FA;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.service-card p {
+    font-size: 16px;
+}
+
+
+
+/* O nás */
+.about {
+    padding: 20px 20px;  /* Snížení paddingu pro menší výšku */
+    background-color: #f4f4f4;
+    text-align: center;  /* Zarovnání textu na střed */
+    margin-bottom: 20px;  /* Zmenšení mezery pod sekcí */
+
+}
+
+.about h2 {
+    font-size: 28px;  /* Zmenšení velikosti nadpisu */
+    margin-bottom: 15px;  /* Zmenšení mezery pod nadpisem */
+}
+
+.about p {
+    font-size: 16px;  /* Snížení velikosti písma */
+    line-height: 1.5;  /* Snížení výšky řádku pro kompaktnější text */
+    max-width: 700px;  /* Nastavení šířky textu */
+    margin: 0 auto 15px;  /* Zmenšení mezery pod textem */
+}
+
+.about h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1E3A8A;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.about ul {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.about ul li {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+
+
+/* Kontakt */
+.contact {
+    padding: 70px 20px;
+    background-color: white;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: #1E3A8A;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+form input, form textarea {
+    padding: 12px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+form .submit-button {
+    padding: 12px 25px;
+    background-color: #1E3A8A;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form .submit-button:hover {
+    background-color: #FFB74D;
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    padding: 30px 20px;
+    text-align: center;
+    background-color: #1E3A8A;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#home-footer {
+    padding: 30px 20px;
+    text-align: center;
+    background-color: #1E3A8A;
+    color: white;
+    position: relative;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+
+/* Zobrazení zprávy po odeslání */
+#success-message:target {
+    display: block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #155724;
+    background-color: #D4EDDA;
+    border: 1px solid #C3E6CB;
+    border-radius: 5px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out, fadeOut 0.5s ease-in-out 3s forwards;
+}
+.hidden {
+    display: none;
+}
+
+
+/* Animace zobrazení */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animace zmizení po 3 sekundách */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+    }
+}
+
+.submit-button:hover {
+    background-color: #FFB74D;
+    transform: translateY(-3px);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Zobrazení zprávy po přihlášení */
+#login-success:target {
+    display: block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #155724;
+    background-color: #D4EDDA;
+    border: 1px solid #C3E6CB;
+    border-radius: 5px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out, fadeOut 0.5s ease-in-out 3s forwards;
+}
+#signin-success:target {
+    display: block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #155724;
+    background-color: #D4EDDA;
+    border: 1px solid #C3E6CB;
+    border-radius: 5px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out, fadeOut 0.5s ease-in-out 3s forwards;
+}
+
+/* O nás - původní menší sekce */
+.about {
+    padding: 20px 20px;  
+    background-color: #f4f4f4;
+    text-align: center;  
+    margin-bottom: 20px;  
+}
+
+.about h2 {
+    font-size: 28px;  
+    margin-bottom: 15px;  
+}
+
+.about p {
+    font-size: 16px;  
+    line-height: 1.5;  
+    max-width: 700px;  
+    margin: 0 auto 15px;  
+}
+
+.about h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1E3A8A;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.about ul {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.about ul li {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+/* Nová unikátní třída pro větší sekci - Balíčky na míru */
+.about-balicky,.about-vylety,.about-cestovni {
+    padding: 70px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.about-balicky h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: #1E3A8A;
+    text-transform: uppercase;
+}
+
+
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    flex: 1; /* toto vyplní volný prostor a přitlačí footer dolů */
+}
+
+#home-footer {
+    padding: 30px 20px;
+    text-align: center;
+    background-color: #1E3A8A;
+    color: white;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+}
+.about-balicky h2, 
+.about-vylety h2, 
+.about-cestovni h2 {
+    color: #1E3A8A; /* modrá barva nadpisu */
+}
+.about-balicky h2, 
+.about-vylety h2, 
+.about-cestovni h2 {
+    font-size: 36px; /* stejná velikost pro všechny nadpisy */
+    color: #1E3A8A;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+form {
+    margin-top: 50px;
+}
+.auth-form {
+    margin-top: 60px; 
+    margin-bottom: 60px;
+}
+.about {
+    padding: 60px 20px;  /* větší odsazení sekce */
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 36px; /* větší nadpis */
+    margin-bottom: 25px;
+    color: #1E3A8A;
+}
+
+.about p {
+    font-size: 18px;  /* větší text */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+
+

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mo.let - Letenky</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Styl pro modal */
+        #booking-confirmation {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #4caf50;
+            color: #fff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            z-index: 1000;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">  <!-- začátek wrapperu -->
+
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="index.html" style="color: inherit; text-decoration: none;">Mo.let</a></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Úvod</a></li>
+                        <li><a href="index.html#services">Služby</a></li>
+                        <li><a href="index.html#about">O nás</a></li>
+                        <li><a href="index.html#contact">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Sekce Vyhledávání letů -->
+        <div class="flight-search">
+            <h3>Najděte si svůj ideální let</h3>
+
+            <!-- Výběr destinace -->
+            <label for="destination">Destinace:</label>
+            <select id="destination">
+                <option value="maroko">Maroko</option>
+                <option value="saudska_arabie">Saúdská Arábie</option>
+                <option value="jemen">Jemen</option>
+                <option value="qatar">Qatar</option>
+                <option value="emiraty">Emiráty</option>
+                <option value="palestina">Palestina</option>
+            </select>
+
+            <!-- Výběr data odletu -->
+            <label for="departure-date">Datum odletu:</label>
+            <input type="date" id="departure-date" min="2025-01-01" max="2025-12-31">
+
+            <button onclick="searchFlights()">Vyhledat lety</button>
+        </div>
+
+        <!-- Sekce pro zobrazení letů -->
+        <div id="available-flights" class="flights" style="display: none;">
+            <h2>Dostupné lety</h2>
+            <div id="flights-list" class="flight-options"></div>
+        </div>
+
+        <!-- Modal pro potvrzení rezervace -->
+        <div id="booking-confirmation">Rezervace úspěšně provedena!</div>
+
+    </div> <!-- konec wrapperu -->
+
+    <footer id="home-footer">
+        <div class="container">
+            <p>&copy; 2025 Mo.let. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
+<script>
+// Data pro destinace a lety
+const flightsData = {
+    'maroko': [
+        { airport: 'Letiště Casablanca', price: '9,990 Kč', date: '12/07/2025', time: '10:00' },
+        { airport: 'Letiště Casablanca', price: '10,500 Kč', date: '15/07/2025', time: '14:30' }
+    ],
+    'saudska_arabie': [
+        { airport: 'Letiště Riyad', price: '12,500 Kč', date: '10/06/2025', time: '08:00' },
+        { airport: 'Letiště Riyad', price: '13,000 Kč', date: '18/07/2025', time: '16:00' }
+    ],
+    'jemen': [
+        { airport: 'Letiště Sana\'a', price: '7,990 Kč', date: '01/08/2025', time: '11:30' },
+        { airport: 'Letiště Sana\'a', price: '8,200 Kč', date: '20/08/2025', time: '13:00' }
+    ],
+    'qatar': [
+        { airport: 'Letiště Doha', price: '15,000 Kč', date: '10/05/2025', time: '09:00' },
+        { airport: 'Letiště Doha', price: '14,800 Kč', date: '22/06/2025', time: '17:00' }
+    ],
+    'emiraty': [
+        { airport: 'Letiště Dubaj', price: '18,000 Kč', date: '15/06/2025', time: '12:30' },
+        { airport: 'Letiště Dubaj', price: '17,500 Kč', date: '05/07/2025', time: '15:00' }
+    ],
+    'palestina': [
+        { airport: 'Letiště Jeruzalém', price: '13,500 Kč', date: '20/05/2025', time: '07:30' },
+        { airport: 'Letiště Jeruzalém', price: '14,000 Kč', date: '28/06/2025', time: '11:00' }
+    ]
+};
+
+// Funkce pro vyhledání letů
+function searchFlights() {
+    const destination = document.getElementById('destination').value;
+    const departureDate = document.getElementById('departure-date').value;
+
+    const selectedFlights = flightsData[destination];
+    const flightsList = document.getElementById('flights-list');
+    flightsList.innerHTML = '';
+
+    selectedFlights.forEach(flight => {
+        const flightCard = document.createElement('div');
+        flightCard.classList.add('flight-card');
+        flightCard.innerHTML = `
+            <h3>${destination.charAt(0).toUpperCase() + destination.slice(1)}</h3>
+            <p><strong>Letiště:</strong> ${flight.airport}</p>
+            <p><strong>Cena:</strong> <span>${flight.price}</span></p>
+            <p><strong>Odlet:</strong> ${flight.date} v ${flight.time}</p>
+            <a href="#" class="book-btn" onclick="confirmBooking()">Rezervovat</a>
+        `;
+        flightsList.appendChild(flightCard);
+    });
+    document.getElementById('available-flights').style.display = 'block';
+}
+
+// Funkce pro zobrazení potvrzení rezervace
+function confirmBooking() {
+    const modal = document.getElementById('booking-confirmation');
+    modal.style.display = 'block';
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 3000);
+}
+</script>
+
+</body>
+</html>

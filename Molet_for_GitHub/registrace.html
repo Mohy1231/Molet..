@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrovat se - Mo.let</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h1><a href="index.html" style="color: inherit; text-decoration: none;">Mo.let</a></h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="prihlasit.html">Přihlásit se</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="auth-form" class="auth-form register">
+
+
+    <form action="#signin-success" method="post">
+        <label for="first-name">Jméno:</label>
+        <input type="text" id="first-name" name="first-name" required>
+    
+        <label for="last-name">Příjmení:</label>
+        <input type="text" id="last-name" name="last-name" required>
+    
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+    
+        <label for="password">Heslo:</label>
+        <input type="password" id="password" name="password" required>
+    
+        <label for="confirm-password">Potvrďte heslo:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+    
+        <button type="submit" class="submit-button">Zaregistrovat se</button>
+        <div id="signin-success" class="hidden">✅ Úspěšně zaregistrováno!</div>
+    </form>
+    
+</section>
+
+<footer>
+    <p>&copy; 2025 Mo.let | Všechna práva vyhrazena</p>
+</footer>
+
+</body>
+</html>
+
+
+
